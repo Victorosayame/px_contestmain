@@ -106,7 +106,7 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
               hasFilledBoth
                 ? "bg-blue-500 hover:!bg-blue-500"
                 : "bg-blue-300 hover:!bg-blue-300"
-            } text-white py-[0px] rounded-[8px] font-medium focus:outline-none focus:ring-0 focus:border-none w-[268px]`}
+            } text-white py-[0px] rounded-[8px] font-medium focus:outline-none focus:ring-0 w-[268px]`}
             onClick={async () => {
               if (hasFilledBoth) {
                 await sendMail({
