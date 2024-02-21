@@ -1,33 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body{
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column
+}
+
+
+
+.app {
+  @apply relative z-10 flex flex-grow justify-center 
+}
+
+.nav_Announcement{
+  @apply bg-gray-800
+  /* display: block; */
+  min-w-full
+}
+
+.nav_container{
+  @apply pt-2
+  pb-2
+  text-center
+  ml-auto;
+}
+
+ .nav_header{
+  @apply flex
+  items-center
+  flex-wrap
+  justify-between
+  pb-5
+  pt-4
+  relative
+  align-top
+  min-w-full
+  text-justify
+  border-b-2
+  bg-slate-100
+}
+
+.logo_text {
+  @apply max-md:hidden font-satoshi text-black tracking-wide;
+}
+
+.link_footer{
+  font-size: 16px;
+  text-decoration: none;
+  color: #bbbbbb;
+  display: block;
+  transition: all .3s ease;
+  line-height: 20px;
+  padding-bottom: 15px;
+}
+
+.list_footer:hover{
+  font-size: 10pt;
+  padding-left: 6px;
+  color: #fff;
+  transition: all .5s ease;
+}
+
+/* .link_header{
+  font-size: 16px;
+  text-decoration: none;
+  color: #bbbbbb;
+  display: block;
+  transition: all .3s ease;
+  line-height: 20px;
+  padding-bottom: 15px;
+} */
+
+.list_header:hover{
+  font-size: 15pt;
+  padding-left: 4px;
+  transition: all .2s ease;
+  border-bottom: 3px solid cyan;
+}
+
+.social_link{
+  transition: all .5s ease;
+}
+
+.social_link:hover{
+  padding-left: 6px;
+  padding-right: 6px;
+  transition: all .5s ease;
+}
+
+
+
+/* @media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
   }
+} */
+
+/* .Main_Links{
+  display: inline-block;
+  width: 350px;
+} */
+
+/* .container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} */
+
+.instagram-logo{
+  background-position: 0 -52px;
+  height: 51px;
+  width: 175px;
+  background-image: url(	https://static.cdninstagram.com/rsrc.php/v3/yM/r/8n91YnfPq0s.png);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* .facebook-logo{
+  background-position: -347px -329px;
+  background-size: 440px 411px;
+  background-image: url(https://static.cdninstagram.com/rsrc.php/v3/yV/r/6JqvJ6H_bFT.png);
+  height: 16px;
+  width: 16px;
+} */
+
+.facebook-color{
+  background-color: #42b72a;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* .hovermodal:hover{
+  color: #42b72a;
+  background-color: blue;
+ 
+} */
+
+
+.easeInst:hover{
+ background-color: rgb(255, 235, 238);
+ transition: ease-in 0.1s; 
+}
+
+.easeInst:active{
+  background-color: rgb(255, 222, 227); 
+}
+
+.easeFace:hover{
+  background-color: rgb(242, 242, 253);
+  transition: ease-in 0.1s;
+}
+
+.easeFace:active{
+  background-color: rgb(230, 230, 255);
 }
