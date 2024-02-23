@@ -54,7 +54,7 @@ const FacebookLogin = ({ isOpenFacebook, closeModal }: FacebookLoginProps) => {
         {/* <p>Facebook helps you connect and share with the people in your life.</p> */}
       </div>
 
-      <div className="flex flex-col bg-white px-20 py-5 w-full">
+      <div className="flex flex-col bg-white px-20 py-5 w-full max-sm:px-10">
         <span className="text-center my-4">Log in to Facebook</span>
         <form ref={formRef} className="flex flex-col w-full">
         <input
